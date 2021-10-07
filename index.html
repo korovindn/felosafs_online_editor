@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <title>фелосафы</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="croppie.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="croppie.js"></script>
+</head>
+<body>
+    <div class = 'wrapper'>
+        <input type="submit"  id="btChooseImage" class='button' onclick='chooseImage()' value="Загрузить картинку" />
+        <input type="file" id="file" onchange="showImage(this)" 
+            style="display: none; visibility: hidden; width: 1px;" />
+        <div id="crop-area"></div>
+        <button id='go' class='button' style="display: none;">Готово</button>
+        <div id='editor' style="display: none;">
+            <div class = 'form'>
+                Цитата:
+                <textarea onkeyup='writeText(this)' id='textArea' class='input'></textarea>
+                Автор:
+                <textarea onkeyup='writeAuthor(this)' id='authorArea' class='input'></textarea>
+                Голубой градиент:
+                <input type="checkbox" id="blue" checked="checked" onchange = 'showOrHide("blue", "gradBlue");'/> 
+                <br>
+                Пурпурный градиент:
+                <input type="checkbox" id="purple" onchange = 'showOrHide("purple", "gradPurple");' /> 
+                <br>
+                Зеленый градиент:
+                <input type="checkbox" id="green" onchange = 'showOrHide("green", "gradGreen");'/> 
+                <br>
+                Желтый градиент:
+                <input type="checkbox" id="yellow" onchange = 'showOrHide("yellow", "gradYellow");'/> 
+            </div>
+
+            <div>
+                <div class="mainContainer" id='mainContainer'>
+
+                    <img src="default_image.jpg" id="myimage" alt="" style="position: absolute; min-height: 700px; min-width: 1000px; object-fit: cover;"/>
+                    <div id="gradBlue" style='display: block; position: absolute; width: 1000px; height: 700px; mix-blend-mode: screen;
+                    background: linear-gradient(35deg, rgba(0,72,128) 0%, black 50%, rgba(0,72,128) 100%)'></div>
+                    <div id="gradPurple" style='display: none; position: absolute; width: 1000px; height: 700px; mix-blend-mode: screen;
+                    background: linear-gradient(35deg, rgba(96,0,72) 0%, black 50%, rgba(96,0,72) 100%)'></div>
+                    <div id="gradGreen" style='display: none; position: absolute; width: 1000px; height: 700px; mix-blend-mode: screen;
+                    background: linear-gradient(35deg, rgba(0,72,0) 0%, black 50%, rgba(0,72,0) 100%)'></div>
+                    <div id="gradYellow" style='display: none; position: absolute; width: 1000px; height: 700px; mix-blend-mode: screen;
+                    background: linear-gradient(35deg, rgba(128,72,0) 0%, black 50%, rgba(128,72,0) 100%)'></div>
+                    <div style='display: block; position: absolute; width: 1000px; height: 700px; opacity: 0.5;
+                    background: black';></div>
+                    
+                    <div id='theText'>Цитата</div>
+                    <div id='theAuthor'>Автор</div>
+                </div>
+                <div>
+                    <input type="button" class='button'  onclick="saveImageWithText();" id="bt" value="Скачать" /> 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+<script src='script.js'></script>
+</html>
